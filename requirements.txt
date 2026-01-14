@@ -22,3 +22,4 @@ httpx
 langchain-chroma
 pypdf
 python-multipart
+sentence-transformers
