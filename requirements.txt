@@ -16,3 +16,6 @@ uvicorn
 tensorflow
 joblib
 
+
+pytest
+httpx
