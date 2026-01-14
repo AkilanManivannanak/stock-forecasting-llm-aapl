@@ -74,7 +74,7 @@ def load_trained_model(ticker: str):
             f"Trained model not found for {ticker} at {model_path}. "
             "Train and save the model before calling the API."
         )
-    model = keras_load_model(model_path)
+    model = keras_load_model(model_path,compile=False)
     return model
 
 
