@@ -19,3 +19,6 @@ joblib
 
 pytest
 httpx
+langchain-chroma
+pypdf
+python-multipart
