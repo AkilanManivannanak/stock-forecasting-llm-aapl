@@ -1,0 +1,10 @@
+What is the goal of this project?
+According to experiment_report.md, what is the best model on RMSE?
+List the models and RMSE shown in experiment_report.md.
+In RAG_PIPELINE.md, where is Chroma persisted and what collection name is used?
+What embedding model is used for RAG?
+Which folder is indexed during RAG ingestion?
+What is the strict grounding rule for the RAG copilot?
+Which FastAPI endpoints are available for forecasting?
+Where are plots saved and which plot file is mentioned in experiment_report.md?
+Where are future forecasts saved?

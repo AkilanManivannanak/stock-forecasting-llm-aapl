@@ -1,0 +1,26 @@
+.venv/
+__pycache__/
+*.pyc
+models/
+outputs/
+plots/*.png
+artifacts/
+.pytest_cache/
+.DS_Store
+
+# --- Virtual environments (never commit) ---
+.venv/
+venv/
+.venv-rag/
+
+# --- Python caches ---
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.mypy_cache/
+
+# --- Jupyter ---
+.ipynb_checkpoints/
+
+# --- OS junk ---
+.DS_Store
