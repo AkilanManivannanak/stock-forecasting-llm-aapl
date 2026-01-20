@@ -143,7 +143,7 @@ Example : RAG:
 
 ---
 
-## How to run (end-to-end)
+# How to run (end-to-end)
 # 1. Create venv + install dependencies:
 
        python -m venv .venv
@@ -192,6 +192,44 @@ Example : RAG:
  
     uvicorn app:app --host 127.0.0.1 --port 8000
 
+# 6. RAG demo: questions 
+
+```bash
+cat > demo_questions.txt <<'EOF'
+What is the goal of this project?
+According to experiment_report.md, what is the best model on RMSE?
+Where is Chroma persisted and what collection name is used?
+What embedding model is used for RAG?
+What is the strict grounding rule for the RAG copilot?
+Which FastAPI endpoints are available for forecasting?
+Where are plots saved and which plot file is mentioned in experiment_report.md?
+Where are future forecasts saved?
+EOF
+
+while IFS= read -r q; do
+  echo
+  echo "Q: $q"
+
+  resp=$(curl -s -X POST http://127.0.0.1:8000/ask \
+    -H "Content-Type: application/json" \
+    -d "{\"ticker\":\"AAPL\",\"question\":\"$q\",\"k\":6}")
+
+  echo "$resp" | python -m json.tool | head -n 60
+
+  ans=$(echo "$resp" | python -c 'import sys, json; print(json.load(sys.stdin).get("answer",""))')
+
+  if [ -n "$ans" ]; then
+    say -v Samantha "$ans"
+  else
+    say -v Samantha "No answer returned."
+  fi
+done < demo_questions.txt
+
+# Notes:
+If the answer is not explicitly present in retrieved data/kb/ context, the system returns Not found in docs.
+You can change the voice with: say -v '?'
+
+```
 ---
 
 ## Strict grounding contract
