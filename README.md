@@ -1,3 +1,4 @@
+![Cover](AAPL_RAG_cover.png)
 # Stock Forecasting System (AAPL)
 **Baselines → LSTM → FastAPI → Strictly Grounded RAG Copilot (Ollama)**
 
