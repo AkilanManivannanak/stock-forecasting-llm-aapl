@@ -50,14 +50,14 @@
 ┌──────────────────────────────────────────────────────────────────────────┐
 │                     FORECASTING PIPELINE                                 │
 │                                                                          │
-│  📥 Ingest      ✂️ Split        🧠 Train        📊 Evaluate              │
-│  yfinance  ──▶  Train/Val  ──▶  Naive          metrics.csv              │
+│  📥 Ingest      ✂️ Split        🧠 Train        📊 Evaluate            │
+│  yfinance  ──▶  Train/Val  ──▶  Naive          metrics.csv               │
 │  OHLCV          /Test           MA(7)      ──▶  plots/                   │
 │                                 LSTM            experiment_report.md     │
 │                                                          │               │
 │                        ┌─────────────────────────────────┘               │
 │                        ▼                                                 │
-│  🔍 Index          🚀 Serve                                              │
+│  🔍 Index          🚀 Serve                                             │
 │  Chroma      ──▶  FastAPI + RAG Copilot                                  │
 │  MiniLM            /health  /forecast                                    │
 │  data/kb/          /multi_horizon_forecast  /ask                         │
@@ -334,12 +334,12 @@ done < demo_questions.txt
 ┌─────────────────────────────────────────────────────────────┐
 │  RAG COPILOT RULE (non-negotiable)                          │
 │                                                             │
-│  Answer = retrieved context from data/kb/ ONLY             │
+│  Answer = retrieved context from data/kb/ ONLY              │
 │                                                             │
-│  If answer NOT explicitly present in top-k chunks:         │
-│    → return "Not found in docs."                           │
+│  If answer NOT explicitly present in top-k chunks:          │
+│    → return "Not found in docs."                            │
 │                                                             │
-│  No model parametric memory. No hallucination.             │
+│  No model parametric memory. No hallucination.              │
 └─────────────────────────────────────────────────────────────┘
 ```
 
